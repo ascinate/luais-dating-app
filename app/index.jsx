@@ -1,18 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Video } from 'expo-av';
-import "../../global.css";
+import "../global.css";
 import { SafeAreaView } from 'react-native-safe-area-context';
 // component
 import CustomText from '@/components/ui/CustomText';
 import ThemeButton from '@/components/ui/ThemeButton';
-
-export default function HomeScreen() {
+import { router } from 'expo-router';
+export default function LandingTwo() {
   return (
     <SafeAreaView className="flex-1">
       {/* Background Video */}
       <Video
-        source={require('../../assets/video/landing.mp4')}
+        source={require('../assets/video/landing.mp4')}
         style={StyleSheet.absoluteFill}
         resizeMode="cover"
         shouldPlay
@@ -41,7 +41,7 @@ export default function HomeScreen() {
         <CustomText weight="regular" style={{ fontSize: 14, color: 'white', marginTop: 10, marginBottom: 20 }}>
           A better way to meet the right people.
         </CustomText>
-        <ThemeButton />
+<ThemeButton onPress={() => router.push('/signup')} />
       </View>
 
     </SafeAreaView>
