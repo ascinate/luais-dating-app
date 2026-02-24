@@ -1,0 +1,155 @@
+import React from 'react'
+import { View, Text, StyleSheet } from 'react-native'
+import { Video } from 'expo-av'
+import { Settings2, TableOfContents } from 'lucide-react-native'
+
+// Components
+import BackgroundUI from '@/components/ui/BackgroundUI'
+import CircleButton from '@/components/ui/CircleButton'
+import ToggleButton from '@/components/ui/ToggleButton'
+import LikeDislikeButton from '@/components/ui/LikeDislikeButton'
+
+const Home = () => {
+    return (
+        <BackgroundUI>
+
+
+            <View style={styles.header}>
+                <CircleButton Icon={TableOfContents} />
+                <ToggleButton />
+                <CircleButton Icon={Settings2} />
+            </View>
+
+
+            <View style={styles.stack}>
+
+
+
+                <View style={styles.profileContainer}>
+
+                    <Video
+                        source={require('../assets/video/landing.mp4')}
+                        style={styles.video}
+                        resizeMode="cover"
+                        shouldPlay
+                        isLooping
+                        isMuted
+                    />
+
+
+
+
+                    <View style={styles.chips}>
+
+                        <View style={styles.chip}>
+                            <View style={styles.dot} />
+                            <Text style={styles.chipText}>ONLINE</Text>
+                        </View>
+
+                        <View style={styles.chip}>
+                            <Text style={styles.chipText}>🎵 82% MUSIC</Text>
+                        </View>
+
+                    </View>
+
+
+                    <View style={styles.info}>
+                        <Text style={styles.name}>
+                            SUSAN, <Text style={{ color: '#ff5fa2' }}>23</Text>
+                        </Text>
+                        <Text style={styles.location}>USA, NEW YORK</Text>
+                    </View>
+
+                </View>
+
+                <LikeDislikeButton  />
+
+            </View>
+
+        </BackgroundUI>
+    )
+}
+
+export default Home
+
+const styles = StyleSheet.create({
+
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        alignItems: 'center',
+    },
+
+    stack: {
+        alignItems: 'center',
+        height: 600,
+        backgroundColor: '#2D2D2D',
+        marginHorizontal: 10,
+        borderRadius: 25,
+        paddingVertical: 20,
+    },
+
+    profileContainer: {
+        marginBottom: 10,
+        width: '90%',
+        height: 480,
+        borderRadius: 25,
+        overflow: 'hidden',
+        // backgroundColor: '#b13b3b',
+    },
+
+    video: {
+        width: '100%',
+        height: '100%',
+    },
+
+    chips: {
+        position: 'absolute',
+        top: 15,
+        left: 15,
+        right: 15,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+
+    chip: {
+        flexDirection: 'row',
+        backgroundColor: '#333',
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        borderRadius: 20,
+        alignItems: 'center',
+        gap: 6,
+    },
+
+    dot: {
+        width: 6,
+        height: 6,
+        borderRadius: 3,
+        backgroundColor: '#ffd28a',
+    },
+
+    chipText: {
+        color: '#fff',
+        fontSize: 11,
+    },
+
+    info: {
+        position: 'absolute',
+        bottom: 25,
+        left: 20,
+    },
+
+    name: {
+        color: '#fff',
+        fontSize: 24,
+        fontWeight: '700',
+    },
+
+    location: {
+        color: '#ccc',
+        marginTop: 4,
+    },
+})
