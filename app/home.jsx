@@ -1,29 +1,30 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Video } from 'expo-av'
-import { Settings2, TableOfContents } from 'lucide-react-native'
-
+import { Bookmark, BookmarkCheck, Navigation, Settings2, TableOfContents } from 'lucide-react-native'
+import { router } from 'expo-router'
 // Components
 import BackgroundUI from '@/components/ui/BackgroundUI'
 import CircleButton from '@/components/ui/CircleButton'
 import ToggleButton from '@/components/ui/ToggleButton'
 import LikeDislikeButton from '@/components/ui/LikeDislikeButton'
+import BottomTabs from '@/components/ui/BottomTabs'
 
 const Home = () => {
     return (
         <BackgroundUI>
+            <View style={{ alignItems: 'center', marginBottom: 10 }}>
 
+            </View>
 
             <View style={styles.header}>
-                <CircleButton Icon={TableOfContents} />
+                <CircleButton Icon={TableOfContents} onPress={() => router.push('/userprofile')} />
                 <ToggleButton />
                 <CircleButton Icon={Settings2} />
             </View>
 
 
             <View style={styles.stack}>
-
-
 
                 <View style={styles.profileContainer}>
 
@@ -35,9 +36,6 @@ const Home = () => {
                         isLooping
                         isMuted
                     />
-
-
-
 
                     <View style={styles.chips}>
 
@@ -57,14 +55,28 @@ const Home = () => {
                         <Text style={styles.name}>
                             SUSAN, <Text style={{ color: '#ff5fa2' }}>23</Text>
                         </Text>
+
                         <Text style={styles.location}>USA, NEW YORK</Text>
                     </View>
 
+
+                    <TouchableOpacity >
+                        <View style={{ position: 'absolute', bottom: 25, right: 20, borderWidth: 1, borderColor: '#ffff', borderRadius: 30, padding: 8, backgroundColor: '#33333367' }}>
+                            <Bookmark color='#fff' />
+                        </View>
+                    </TouchableOpacity>
+
                 </View>
 
-                <LikeDislikeButton  />
+                <LikeDislikeButton />
 
             </View>
+
+
+            <View alignItems="center" style={{ marginTop: 100 }}>
+                <BottomTabs />
+            </View>
+
 
         </BackgroundUI>
     )
@@ -83,6 +95,7 @@ const styles = StyleSheet.create({
     },
 
     stack: {
+        marginTop: 20,
         alignItems: 'center',
         height: 600,
         backgroundColor: '#2D2D2D',
@@ -151,5 +164,6 @@ const styles = StyleSheet.create({
     location: {
         color: '#ccc',
         marginTop: 4,
+
     },
 })
