@@ -1,12 +1,12 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
 import { VideoView, useVideoPlayer } from "expo-video";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { StyleSheet, View } from "react-native";
 
 export default function Index() {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
+  const hasNavigated = useRef(false);
 
   const player = useVideoPlayer(
     require("../assets/video/introvg.mp4"),
@@ -17,28 +17,21 @@ export default function Index() {
   );
 
   useEffect(() => {
-    checkUser();
+    const run = async () => {
+      // Minimum splash time
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      const token = await AsyncStorage.getItem("userToken");
+
+      if (hasNavigated.current) return;
+
+      hasNavigated.current = true;
+
+      router.replace(token ? "/homemain" : "/homemain");
+    };
+
+    run();
   }, []);
-
-  const checkUser = async () => {
-    const token = await AsyncStorage.getItem("userToken");
-
-    if (token) {
-      router.replace("/homemain"); // 
-    } else {
-      setLoading(false); // 
-    }
-  };
-
-  useEffect(() => {
-    const subscription = player.addListener("playToEnd", () => {
-      router.replace("/homemain");
-    });
-
-    return () => subscription.remove();
-  }, [player]);
-
-  if (loading) return null;
 
   return (
     <View style={styles.container}>
