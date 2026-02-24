@@ -20,8 +20,8 @@ const ThemeButton = ({ text, icon, onPress, style, textStyle, iconPosition = 'le
                     {icon && iconPosition === 'left' && <View style={styles.icon}>{icon}</View>}
 
                     {/* Button text */}
-                    <Text weight="Bold" style={[styles.continueTxt, textStyle]}>
-                        LET'S GO
+                    <Text style={[styles.continueTxt, textStyle]}>
+                        {text}
                     </Text>
 
                     {/* Optional icon on the right */}

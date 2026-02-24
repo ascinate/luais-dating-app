@@ -13,9 +13,6 @@ import BottomTabs from '@/components/ui/BottomTabs'
 const Home = () => {
     return (
         <BackgroundUI>
-            <View style={{ alignItems: 'center', marginBottom: 10 }}>
-
-            </View>
 
             <View style={styles.header}>
                 <CircleButton Icon={TableOfContents} onPress={() => router.push('/userprofile')} />
@@ -23,7 +20,32 @@ const Home = () => {
                 <CircleButton Icon={Settings2} />
             </View>
 
+            <View
+                style={{
+                    position: 'absolute',
+                    top: 135,
+                    width: '70%',
+                    height: 50,
+                    backgroundColor: '#2D2D2D',
+                    borderRadius: 25,
+                    paddingVertical: 20,
 
+                    alignSelf: 'center',
+                }}
+            />
+            <View
+                style={{
+                    position: 'absolute',
+                    top: 155,
+                    width: '85%',
+                    height: 50,
+                    backgroundColor: '#2D2D2D',
+                    borderRadius: 25,
+                    paddingVertical: 20,
+
+                    alignSelf: 'center',
+                }}
+            />
             <View style={styles.stack}>
 
                 <View style={styles.profileContainer}>
@@ -45,7 +67,7 @@ const Home = () => {
                         </View>
 
                         <View style={styles.chip}>
-                            <Text style={styles.chipText}>🎵 82% MUSIC</Text>
+                            <Text style={styles.chipText}>🎵 82% MUSIC COMPATIBILITY</Text>
                         </View>
 
                     </View>
@@ -73,7 +95,7 @@ const Home = () => {
             </View>
 
 
-            <View alignItems="center" style={{ marginTop: 100 }}>
+            <View alignItems="center" style={{ marginTop: 80 }}>
                 <BottomTabs />
             </View>
 
@@ -95,7 +117,7 @@ const styles = StyleSheet.create({
     },
 
     stack: {
-        marginTop: 20,
+        marginTop: 40,
         alignItems: 'center',
         height: 600,
         backgroundColor: '#2D2D2D',

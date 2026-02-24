@@ -1,80 +1,82 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import { ArrowLeft, MoreVertical, MapPin, Grid, CreditCard, User, TableOfContents, ChevronLeft } from 'lucide-react-native'
+import { MapPin, Grid, CreditCard, User, TableOfContents, ChevronLeft } from 'lucide-react-native'
 import { Video } from 'expo-av'
-import { Background } from '@react-navigation/elements'
-
 import { router } from 'expo-router'
-import CircleButton from '@/components/ui/CircleButton'
 
+import CircleButton from '@/components/ui/CircleButton'
 import BackgroundUI from '@/components/ui/BackgroundUI'
+import Paragraph from '@/components/ui/Paragraph'
+import ThemeButton from '@/components/ui/ThemeButton'
 export default function Profile() {
     return (
-        <BackgroundUI>  <View style={styles.container}>
+        <BackgroundUI>
 
-            {/* MEDIA */}
-            <View style={styles.mediaWrapper}>
-                <Video
-                    source={require('../assets/video/landing.mp4')}
-                    style={styles.video}
-                    resizeMode="cover"
-                    shouldPlay
-                    isLooping
-                    isMuted
-                />
+            <View style={styles.container}>
 
-                {/* DARK GRADIENT */}
-                <LinearGradient
-                    colors={['rgba(0,0,0,0.6)', 'transparent']}
-                    style={styles.topGradient}
-                />
+                {/* MEDIA */}
+                <View style={styles.mediaWrapper}>
+                    <View style={styles.displayVideo}>
+                        <Video
+                            source={require('../assets/video/videos-main.mp4')}
+                            style={styles.video}
+                            resizeMode="cover"
+                            shouldPlay
+                            isLooping
+                            isMuted
+                        />
+                    </View>
 
-                {/* HEADER */}
-                <View style={styles.header}>
-                    <CircleButton Icon={ChevronLeft} onPress={() => router.back()} />
 
-                    <View style={{ alignItems: 'center' }}>
-                        <Text style={styles.name}>
-                            SUSAN, <Text style={{ color: '#ff5fa2' }}>23</Text> 💙
-                        </Text>
-                        <View style={styles.locationRow}>
-                            <MapPin size={12} color="#fff" />
-                            <Text style={styles.location}>USA, NEW YORK</Text>
+
+                    <View style={styles.header}>
+                        <CircleButton Icon={ChevronLeft} onPress={() => router.back()} />
+
+                        <View style={{ alignItems: 'center' }}>
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <Paragraph style={styles.name}>SUSAN,</Paragraph>
+                                <Paragraph style={{ color: '#ff5fa2', marginLeft: 4 }}>23</Paragraph>
+                            </View>
+
+                            <View style={styles.locationRow}>
+                                <MapPin size={12} color="#fff" />
+                                <Paragraph style={styles.location}>USA, NEW YORK</Paragraph>
+                            </View>
+                        </View>
+
+                        <CircleButton Icon={TableOfContents} onPress={() => { }} />
+                    </View>
+
+                    {/* STATS */}
+                    <View style={styles.statsRow}>
+                        <View style={styles.stat}>
+                            <Paragraph style={styles.statText}>2.5 KM</Paragraph>
+                        </View>
+                        <View style={styles.stat}>
+                            <Paragraph style={styles.statText}>55 KG</Paragraph>
+                        </View>
+                        <View style={styles.stat}>
+                            <Paragraph style={styles.statText}> 178 CM</Paragraph>
                         </View>
                     </View>
 
-                    <CircleButton Icon={TableOfContents} onPress={() => router.push('/userprofile')} />
                 </View>
 
-                {/* STATS */}
-                <View style={styles.statsRow}>
-                    <View style={styles.stat}><Text style={styles.statText}>📍 2.5 KM</Text></View>
-                    <View style={styles.stat}><Text style={styles.statText}>⚖️ 55 KG</Text></View>
-                    <View style={styles.stat}><Text style={styles.statText}>📏 178 CM</Text></View>
+                {/* MINI TABS */}
+                <View style={styles.miniTabs}>
+                    <Grid color="#ff5fa2" />
+                    <CreditCard color="#777" />
+                    <User color="#777" />
                 </View>
+
+
+
+                <ThemeButton text="Message" />
+
             </View>
 
-            {/* MINI TABS */}
-            <View style={styles.miniTabs}>
-                <Grid color="#ff5fa2" />
-                <CreditCard color="#777" />
-                <User color="#777" />
-            </View>
-
-            {/* MESSAGE BUTTON */}
-            <LinearGradient
-                colors={['#ff5fa2', '#7b4dff']}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 0 }}
-                style={styles.messageBtn}
-            >
-                <Text style={styles.messageText}>MESSAGE</Text>
-            </LinearGradient>
-
-        </View>
         </BackgroundUI>
-
     )
 }
 
@@ -82,6 +84,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#121212',
+        padding: 20,
     },
 
     mediaWrapper: {
@@ -90,18 +93,19 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 30,
         overflow: 'hidden',
     },
-
+    displayVideo: {
+        width: '400',
+        height: '700',
+        borderBottomLeftRadius: 30,
+        borderBottomRightRadius: 30,
+        overflow: 'hidden',
+    },
     video: {
         width: '100%',
         height: '100%',
     },
 
-    topGradient: {
-        position: 'absolute',
-        top: 0,
-        width: '100%',
-        height: 160,
-    },
+
 
     header: {
         position: 'absolute',
@@ -113,15 +117,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
-    circle: {
-        width: 36,
-        height: 36,
-        borderRadius: 18,
-        backgroundColor: 'rgba(255,255,255,0.2)',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
     name: {
         color: '#fff',
         fontSize: 18,
@@ -130,7 +125,6 @@ const styles = StyleSheet.create({
 
     locationRow: {
         flexDirection: 'row',
-        gap: 4,
         alignItems: 'center',
         marginTop: 2,
     },
@@ -138,6 +132,7 @@ const styles = StyleSheet.create({
     location: {
         color: '#fff',
         fontSize: 12,
+        marginLeft: 4,
     },
 
     statsRow: {
@@ -146,15 +141,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         justifyContent: 'center',
-        gap: 10,
     },
 
     stat: {
         borderWidth: 1,
         borderColor: '#ff5fa2',
-        borderRadius: 20,
+        borderRadius: 25,
         paddingHorizontal: 12,
         paddingVertical: 6,
+        marginHorizontal: 5,
     },
 
     statText: {
