@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 import CircleButton from '@/components/ui/CircleButton'
@@ -55,7 +55,7 @@ const chat = () => {
                 <View>
 
                     {/* ROW 1 */}
-                    <View style={styles.chatRow}>
+                    <TouchableOpacity style={styles.chatRow}>
                         <Image source={require('../assets/images/profile.jpg')} style={styles.chatAvatar} />
 
                         <View style={{ flex: 1 }}>
@@ -67,10 +67,10 @@ const chat = () => {
                             <Text style={styles.time}>5 MIN AGO</Text>
                             <View style={styles.badge}><Text style={{ color: '#fff' }}>2</Text></View>
                         </View>
-                    </View>
+                    </TouchableOpacity>
 
                     {/* ROW 2 */}
-                    <View style={styles.chatRow}>
+                    <TouchableOpacity style={styles.chatRow}>
                         <Image source={require('../assets/images/profile.jpg')} style={styles.chatAvatar} />
 
                         <View style={{ flex: 1 }}>
@@ -82,10 +82,10 @@ const chat = () => {
                             <Text style={styles.time}>5 MIN AGO</Text>
                             <View style={styles.badge}><Text style={{ color: '#fff' }}>2</Text></View>
                         </View>
-                    </View>
+                    </TouchableOpacity>
 
                     {/* ROW 3 */}
-                    <View style={styles.chatRow}>
+                    <TouchableOpacity style={styles.chatRow}>
                         <Image source={require('../assets/images/profile.jpg')} style={styles.chatAvatar} />
 
                         <View style={{ flex: 1 }}>
@@ -97,40 +97,41 @@ const chat = () => {
                             <Text style={styles.time}>5 MIN AGO</Text>
                             <CheckCheck size={16} color="#fff" />
                         </View>
+                        
+              </TouchableOpacity>
+
+                <TouchableOpacity style={styles.chatRow}>
+                    <Image source={require('../assets/images/profile.jpg')} style={styles.chatAvatar} />
+
+                    <View style={{ flex: 1 }}>
+                        <Text style={styles.chatName}>ERICA SINCLAIR</Text>
+                        <Text style={styles.chatMsg}>LOVED THE EVENT LAST NIGHT</Text>
                     </View>
 
-                    <View style={styles.chatRow}>
-                        <Image source={require('../assets/images/profile.jpg')} style={styles.chatAvatar} />
-
-                        <View style={{ flex: 1 }}>
-                            <Text style={styles.chatName}>ERICA SINCLAIR</Text>
-                            <Text style={styles.chatMsg}>LOVED THE EVENT LAST NIGHT</Text>
-                        </View>
-
-                        <View style={{ alignItems: 'flex-end' }}>
-                            <Text style={styles.time}>5 MIN AGO</Text>
-                            <CheckCheck size={16} color="#fff" />
-                        </View>
+                    <View style={{ alignItems: 'flex-end' }}>
+                        <Text style={styles.time}>5 MIN AGO</Text>
+                        <CheckCheck size={16} color="#fff" />
                     </View>
-                    <View style={styles.chatRow}>
-                        <Image source={require('../assets/images/profile.jpg')} style={styles.chatAvatar} />
+                 </TouchableOpacity>
+                <TouchableOpacity style={styles.chatRow}>
+                    <Image source={require('../assets/images/profile.jpg')} style={styles.chatAvatar} />
 
-                        <View style={{ flex: 1 }}>
-                            <Text style={styles.chatName}>ERICA SINCLAIR</Text>
-                            <Text style={styles.chatMsg}>LOVED THE EVENT LAST NIGHT</Text>
-                        </View>
-
-                        <View style={{ alignItems: 'flex-end' }}>
-                            <Text style={styles.time}>5 MIN AGO</Text>
-                            <CheckCheck size={16} color="#fff" />
-                        </View>
+                    <View style={{ flex: 1 }}>
+                        <Text style={styles.chatName}>ERICA SINCLAIR</Text>
+                        <Text style={styles.chatMsg}>LOVED THE EVENT LAST NIGHT</Text>
                     </View>
 
+                    <View style={{ alignItems: 'flex-end' }}>
+                        <Text style={styles.time}>5 MIN AGO</Text>
+                        <CheckCheck size={16} color="#fff" />
+                    </View>
+             </TouchableOpacity>
 
 
-                </View>
-            </ScrollView>
-        </SafeAreaView>
+
+            </View>
+        </ScrollView>
+        </SafeAreaView >
     )
 }
 

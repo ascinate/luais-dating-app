@@ -51,7 +51,7 @@ export default function LandingTwo() {
           A better way to meet the right people.
         </Paragraph>
 
-        <ThemeButton text="LET'S GO" onPress={() => router.push('/home')} />
+        <ThemeButton text="LET'S GO" onPress={() => router.push('/chat')} />
       </LinearGradient>
 
     </View>
