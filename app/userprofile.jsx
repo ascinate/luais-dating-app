@@ -70,9 +70,7 @@ export default function Profile() {
                     <User color="#777" />
                 </View>
 
-
-
-                <ThemeButton text="Message" />
+                <ThemeButton text="Message" onPress={() => router.push('/explore')} />
 
             </View>
 
