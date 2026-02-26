@@ -13,11 +13,10 @@ import BottomTabs from '@/components/ui/BottomTabs'
 const Home = () => {
     return (
         <BackgroundUI>
-
             <View style={styles.header}>
                 <CircleButton Icon={TableOfContents} onPress={() => router.push('/userprofile')} />
                 <ToggleButton />
-                <CircleButton Icon={Settings2} />
+                <CircleButton Icon={Settings2} onPress={() => router.push('/userprofile')} />
             </View>
 
             <View

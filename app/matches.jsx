@@ -71,9 +71,9 @@ const matches = () => {
                 </ScrollView>
 
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 10 }}>
-                    <CircleButton Icon={TableOfContents}  />
+                    <CircleButton Icon={TableOfContents} />
                     <HeadingH2>Matches</HeadingH2>
-                    <CircleButton Icon={Bookmark} />
+                    <CircleButton Icon={Bookmark} onPress={() => router.push('/blockpofiles')}/>
                 </View>
 
 

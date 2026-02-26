@@ -26,7 +26,7 @@ const matches = () => {
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 10 }}>
                     <CircleButton Icon={TableOfContents} onPress={() => router.push('/nearby')} />
                     <HeadingH2>Block Profile</HeadingH2>
-                    <CircleButton Icon={Bookmark} onPress={() => router.push('/nearby')} />
+                    <CircleButton Icon={Bookmark} onPress={() => router.push('/vibe')} />
                 </View>
 
 

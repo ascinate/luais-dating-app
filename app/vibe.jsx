@@ -38,7 +38,7 @@ const match = () => {
 
                     </View>
                 </View>
-                <ThemeButton text="Send a Message" onPress={() => router.push('/chat')} />
+                <ThemeButton text="Send a Message" onPress={() => router.push('/notification')} />
                 <TouchableOpacity
                     activeOpacity={0.8}
                     style={styles.touchable}

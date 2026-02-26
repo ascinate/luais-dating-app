@@ -10,6 +10,7 @@ import HeadingH2 from '@/components/ui/HeadingH2'
 import CustomText from '@/components/ui/CustomText'
 import Paragraph from '@/components/ui/Paragraph'
 import ThemeButton from '@/components/ui/ThemeButton'
+import BottomTabs from '@/components/ui/BottomTabs'
 import { router } from 'expo-router';
 
 
@@ -194,7 +195,9 @@ const editprofile = () => {
                 </View>
 
 
-
+<View style={{alignItems: 'center',marginTop:20}}>
+    <BottomTabs/>
+</View>
             </ScrollView>
         </BackgroundUI>
     )
