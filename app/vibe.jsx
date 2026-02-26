@@ -3,23 +3,39 @@ import React from 'react'
 import ThemeButton from '@/components/ui/ThemeButton'
 import BackgroundUI from '@/components/ui/BackgroundUI'
 import Paragraph from '@/components/ui/Paragraph'
+import Badge from '@/components/ui/Badge'
 import { Video } from 'expo-av'
 import { Music, Sparkles } from 'lucide-react-native'
 import { router } from 'expo-router'
+import { Image } from 'react-native'
+import { Colors } from '@/constants/theme'
 const match = () => {
     return (
         <BackgroundUI>
             <View style={{ padding: 12 }}>
-                <View>
+                <View style={{padding: 12}}>
                     <View style={[styles.videoContainer]}>
-                        <Video
-                            source={require('../assets/video/videos-main.mp4')}
-                            style={styles.video}
-                            resizeMode="cover"
-                            shouldPlay
-                            isLooping
-                            isMuted
-                        />
+                        <Paragraph style={{ textTransform: 'uppercase', marginBottom: 12 }}>
+                            Based on your answers
+                        </Paragraph>
+
+                        <View style={{ width: 100, height: 100 }}>
+                            <Image source={require('../assets/images/profile.jpg')} style={styles.avatar} />
+                        </View>
+                        <Paragraph style={{ textTransform: 'uppercase', color: Colors.pink, marginVertical: 10 }}>You are</Paragraph>
+                        <Paragraph style={{ textTransform: 'uppercase', color: '#fff', fontSize: 30 }}>Bold Romatic</Paragraph>
+
+                        <View style={{ flexDirection: 'row', gap: 8, marginVertical: 12, width: '80%', flexWrap: 'wrap', justifyContent: 'center' }}>
+                            <Badge text="🧘‍♀️ Emotionally deep" />
+                            <Badge text="🎵 Music-driven" />
+                            <Badge text="🎨 Values real connection" />
+                        </View>
+
+                        <Paragraph style={{ textAlign: 'center', marginTop: 20 }}>You fall for energy, not just looks.</Paragraph>
+                        <Paragraph style={{ textAlign: 'center', marginTop: 10 }}> You're drawn to people who feel real, expressive, and emotionally alive.</Paragraph>
+
+
+
                     </View>
                 </View>
                 <ThemeButton text="Send a Message" onPress={() => router.push('/chat')} />
@@ -37,44 +53,7 @@ const match = () => {
                 </TouchableOpacity>
                 <View style={{ marginHorizontal: 20 }}>
 
-                    <View style={styles.bottomText}>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                            <Music color="#F3DEB1" size={18} />
-                            <Text style={styles.continueTxt}>
-                                Your Music Compatibility:
-                            </Text>
-                            <Text style={[styles.continueTxt, { color: '#F3DEB1' }]}>
-                                82%
-                            </Text>
-                        </View>
 
-                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-
-                            <View
-                                style={{
-                                    width: 36,
-                                    height: 36,
-                                    borderRadius: 18,
-                                    backgroundColor: '#FF5F8A',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                }}
-                            >
-                                <Sparkles size={16} color="#fff" />
-                            </View>
-
-                            <Text
-                                style={{
-                                    color: '#aaa',
-                                    flex: 1,
-                                    fontSize: 14,
-                                    lineHeight: 20,
-                                }}
-                            >
-                                Ask about her favorite travel memory — she loves adventure.
-                            </Text>
-                        </View>
-                    </View>
                 </View>
             </View>
         </BackgroundUI>
@@ -91,12 +70,11 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 500,
         overflow: 'hidden',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center'
     },
-    video: {
-        width: "100%",
-        height: '100%',
-        borderWidth: 0,
-    },
+
 
     continueBtn: {
         borderRadius: 12,
@@ -121,6 +99,11 @@ const styles = StyleSheet.create({
         padding: 17,
         alignItems: 'center'
     },
-
+    avatar: {
+        width: '100%',
+        height: '100%'
+        ,
+        borderRadius: 50
+    }
 
 })
