@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView, TextInput, TouchableHighlight, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, TextInput, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback } from 'react-native'
 import React from 'react'
 import { Settings2, Sparkles, TableOfContents, Upload, Video } from 'lucide-react-native'
 
@@ -13,7 +13,7 @@ import ThemeButton from '@/components/ui/ThemeButton'
 
 import { Colors } from '@/constants/theme'
 
-
+import { router } from 'expo-router';
 
 import { LinearGradient } from 'expo-linear-gradient'
 import Badge from '../components/ui/Badge'
@@ -46,24 +46,26 @@ const editprofile = () => {
                             colors={['transparent', 'rgba(0,0,0,0.7)']}
                             style={styles.bottomOverlay}
                         >
+                            <TouchableNativeFeedback onPress={() => router.push('/matches')}>
+                                <View style={styles.actionRow}>
+                                    {/* Replace Button */}
+                                    <View
+                                        style={styles.replaceBtn}
+                                    >
+                                        <Paragraph style={styles.replaceText}>
+                                            REPLACE
+                                        </Paragraph>
+                                    </View>
 
-                            <View style={styles.actionRow}>
-                                {/* Replace Button */}
-                                <View
-                                    style={styles.replaceBtn}
-                                >
-                                    <Paragraph style={styles.replaceText}>
-                                        REPLACE
-                                    </Paragraph>
+                                    {/* Remove Button */}
+                                    <View style={styles.removeBtn}>
+                                        <Paragraph style={styles.removeText}>
+                                            REMOVE
+                                        </Paragraph>
+                                    </View>
                                 </View>
+                            </TouchableNativeFeedback>
 
-                                {/* Remove Button */}
-                                <View style={styles.removeBtn}>
-                                    <Paragraph style={styles.removeText}>
-                                        REMOVE
-                                    </Paragraph>
-                                </View>
-                            </View>
 
                             <Paragraph style={styles.videoInfo}>
                                 THIS VIDEO WILL APPEAR ON YOUR PROFILE AND SWIPE CARDS.

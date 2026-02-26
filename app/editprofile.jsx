@@ -10,7 +10,7 @@ import HeadingH2 from '@/components/ui/HeadingH2'
 import CustomText from '@/components/ui/CustomText'
 import Paragraph from '@/components/ui/Paragraph'
 import ThemeButton from '@/components/ui/ThemeButton'
-
+import { router } from 'expo-router';
 
 
 import { Colors } from '@/constants/theme'
@@ -57,7 +57,7 @@ const editprofile = () => {
                             text="RECORD VIDEO"
                             icon={<Video size={18} color="#fff" />}
                             iconPosition="left"
-                            onPress={() => { }}
+                      onPress={() => router.push('/editprofilevideoupload')}
                         />
 
 

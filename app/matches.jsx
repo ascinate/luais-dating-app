@@ -15,8 +15,6 @@ import { router } from 'expo-router'
 import Badge from '../components/ui/Badge'
 
 
-
-
 const matches = () => {
     return (
         <BackgroundUI>
@@ -73,9 +71,9 @@ const matches = () => {
                 </ScrollView>
 
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 10 }}>
-                    <CircleButton Icon={TableOfContents} onPress={() => router.push('/nearby')} />
+                    <CircleButton Icon={TableOfContents}  />
                     <HeadingH2>Matches</HeadingH2>
-                    <CircleButton Icon={Bookmark} onPress={() => router.push('/nearby')} />
+                    <CircleButton Icon={Bookmark} />
                 </View>
 
 

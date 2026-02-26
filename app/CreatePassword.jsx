@@ -110,7 +110,12 @@ const CreatePassword = () => {
 
                         <TouchableOpacity
                             style={styles.doneBtn}
-                            onPress={() => setModalVisible(false)}
+               onPress={() => {
+  setModalVisible(false);
+  router.push('/home');
+}}
+
+                         
                         >
                             <LinearGradient
                                 colors={['#F65D8F', '#633DE2']}
@@ -119,7 +124,8 @@ const CreatePassword = () => {
                                 style={styles.doneBtnnext}
 
                             >
-                                <Paragraph style={styles.doneText}>DONE</Paragraph> </LinearGradient>
+                                <Paragraph style={styles.doneText}>DONE</Paragraph> 
+                                </LinearGradient>
                         </TouchableOpacity>
 
                     </View>

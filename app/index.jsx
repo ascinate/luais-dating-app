@@ -45,15 +45,11 @@ export default function LandingTwo() {
           </H1>
           <CustomText style={{ fontSize: 16, backgroundColor: '#423A32', height: 35, borderWidth: 1, borderColor: "#FB5883", borderRadius: 25, lineHeight: 35, width: 60, textAlign: "center", color: '#FB5883', }}> 18+ </CustomText>
         </View>
-
-
         <Paragraph style={styles.paragraph}>
           A better way to meet the right people.
         </Paragraph>
-
-        <ThemeButton text="LET'S GO" onPress={() => router.push('/signup')} />
+        <ThemeButton text="LET'S GO" onPress={() => router.push('/signin')} />
       </LinearGradient>
-
     </View>
   );
 }

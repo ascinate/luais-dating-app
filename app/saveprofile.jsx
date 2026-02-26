@@ -22,7 +22,7 @@ const saveprofile = () => {
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 10 }}>
           <CircleButton Icon={TableOfContents} onPress={() => router.push('/nearby')} />
           <HeadingH2>Saved profiles</HeadingH2>
-          <CircleButton Icon={Bookmark} onPress={() => router.push('/nearby')} />
+          <CircleButton Icon={Bookmark} onPress={() => router.push('/editprofile')} />
         </View>
 
 

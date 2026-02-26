@@ -3,7 +3,7 @@ import ThemeButton from "@/components/ui/ThemeButton";
 import { useEffect, useState } from "react";
 import { Dimensions, Image, SafeAreaView, StyleSheet, View } from "react-native";
 import ConfettiCannon from "react-native-confetti-cannon";
-
+import { router } from 'expo-router';
 const { width } = Dimensions.get("window");
 
 export default function Success() {
@@ -32,7 +32,7 @@ export default function Success() {
       </View>
       <View style={styles.bottomactions}>
 
-        <ThemeButton style={styles.signinbtn} text="MATCH ME RIGHT NOW" onPress={() => router.push('/success')} />
+        <ThemeButton style={styles.signinbtn} text="MATCH ME RIGHT NOW" onPress={() => router.push('/home')} />
 
       </View>
     </SafeAreaView>

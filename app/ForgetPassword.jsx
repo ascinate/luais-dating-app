@@ -29,7 +29,10 @@ const ForgetPassword = () => {
 
 
                 <View style={styles.verifySection}>
-                    <H1>FORGOT PASSWORD</H1>
+                    <TouchableOpacity>
+
+                        <H1>FORGOT PASSWORD</H1>
+                    </TouchableOpacity>
                     <Paragraph>Enter your registered email address and we'll send you a secure verification code.</Paragraph>
                     <View style={styles.comoninputs}>
                         <Labeltext>Email Address</Labeltext>
@@ -39,6 +42,8 @@ const ForgetPassword = () => {
                             style={styles.input}
                         />
                     </View>
+
+                    
 
                 </View>
 
