@@ -16,6 +16,8 @@ export const Colors = {
     icon: '#687076',
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
+    // pritam
+    lightGray: '#ABABAB'
   },
   dark: {
     text: '#ECEDEE',
