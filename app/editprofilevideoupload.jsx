@@ -11,9 +11,10 @@ import CustomText from '@/components/ui/CustomText'
 import Paragraph from '@/components/ui/Paragraph'
 import ThemeButton from '@/components/ui/ThemeButton'
 
-
-
 import { Colors } from '@/constants/theme'
+
+
+
 import { LinearGradient } from 'expo-linear-gradient'
 import Badge from '../components/ui/Badge'
 
@@ -37,42 +38,40 @@ const editprofile = () => {
 
                 <View style={styles.videoCard}>
 
-                    {/* Top*/}
-                    <View style={styles.videoTop}>
-                        <View style={styles.iconCircle}>
-                            <Video size={28} color="#9C4DCC" />
+                    {/* Video Preview Area */}
+                    <View style={styles.videoPreview}>
 
-                        </View>
+                        {/* Bottom Gradient Overlay */}
+                        <LinearGradient
+                            colors={['transparent', 'rgba(0,0,0,0.7)']}
+                            style={styles.bottomOverlay}
+                        >
 
-                        <Paragraph style={styles.videoTitle}>ADD YOUR VIDEO PROFILE</Paragraph>
-                        <Paragraph style={styles.videoSubtitle}>
-                            RECORD OR UPLOAD A 10-SECOND VIDEO.
-                        </Paragraph>
+                            <View style={styles.actionRow}>
+                                {/* Replace Button */}
+                                <View
+                                    style={styles.replaceBtn}
+                                >
+                                    <Paragraph style={styles.replaceText}>
+                                        REPLACE
+                                    </Paragraph>
+                                </View>
+
+                                {/* Remove Button */}
+                                <View style={styles.removeBtn}>
+                                    <Paragraph style={styles.removeText}>
+                                        REMOVE
+                                    </Paragraph>
+                                </View>
+                            </View>
+
+                            <Paragraph style={styles.videoInfo}>
+                                THIS VIDEO WILL APPEAR ON YOUR PROFILE AND SWIPE CARDS.
+                            </Paragraph>
+
+                        </LinearGradient>
+
                     </View>
-
-                    {/* Bottom */}
-                    <View style={styles.videoBottom}>
-
-                        <ThemeButton
-                            text="RECORD VIDEO"
-                            icon={<Video size={18} color="#fff" />}
-                            iconPosition="left"
-                            onPress={() => { }}
-                        />
-
-
-
-                        <View style={styles.uploadButton}>
-                            <Upload size={18} color="#999" />
-                            <Paragraph style={styles.uploadText}>  UPLOAD FROM GALLERY</Paragraph>
-                        </View>
-
-                        <Paragraph style={styles.tipText}>
-                            BEST IN GOOD LIGHTING · PORTRAIT · 10 SECONDS
-                        </Paragraph>
-
-                    </View>
-
                 </View>
 
 
@@ -190,7 +189,10 @@ const editprofile = () => {
                     </View>
 
 
-
+                    <ThemeButton
+                        text="SAVE"
+                        onPress={() => { }}
+                    />
                 </View>
 
 
@@ -209,79 +211,63 @@ const styles = StyleSheet.create({
         borderRadius: 25,
 
     },
-
+    // video Card
     videoCard: {
         marginTop: 20,
         borderRadius: 25,
         overflow: 'hidden',
-        backgroundColor: '#E5E5E5'
     },
 
-    videoTop: {
-        paddingVertical: 40,
-        paddingHorizontal: 20,
-        alignItems: 'center',
-        backgroundColor: '#B14FFF' // purple (you can change)
+    videoPreview: {
+        height: 450,
+        backgroundColor: '#CFCFCF', // temporary preview background
+        justifyContent: 'flex-end',
     },
 
-    iconCircle: {
-        width: 70,
-        height: 70,
-        borderRadius: 35,
-        backgroundColor: '#fff',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 20
-    },
-
-    videoTitle: {
-        color: '#fff',
-        fontSize: 18,
-        fontWeight: 'bold',
-        textAlign: 'center'
-    },
-
-    videoSubtitle: {
-        color: '#E6D9F5',
-        marginTop: 8,
-        textAlign: 'center'
-    },
-
-    videoBottom: {
+    bottomOverlay: {
         padding: 20,
-        alignItems: 'center'
     },
 
-    recordButton: {
-        backgroundColor: '#F65D8F',
-        width: '100%',
-        paddingVertical: 15,
-        borderRadius: 18,
-        alignItems: 'center',
-        marginBottom: 15
-    },
-
-    recordText: {
-        color: '#fff',
-        fontWeight: 'bold'
-    },
-
-    uploadButton: {
+    actionRow: {
         flexDirection: 'row',
-        alignContent: 'center',
-        justifyContent: 'center',
-        marginBottom: 20
+        justifyContent: 'space-between',
+        marginBottom: 15,
     },
 
-    uploadText: {
-        color: '#999',
-        fontWeight: '500'
+    replaceBtn: {
+        backgroundColor: Colors.pink,
+        flex: 1,
+        marginRight: 10,
+        paddingVertical: 14,
+        borderRadius: 15,
+        alignItems: 'center',
     },
 
-    tipText: {
-        color: '#BDBDBD',
+    replaceText: {
+        color: '#fff',
+        fontWeight: '600',
+        fontSize: 14,
+    },
+
+    removeBtn: {
+        flex: 1,
+        marginLeft: 10,
+        paddingVertical: 14,
+        borderRadius: 15,
+        alignItems: 'center',
+        backgroundColor: '#E5E5E5',
+    },
+
+    removeText: {
+        color: '#333',
+        fontWeight: '600',
+        fontSize: 14,
+    },
+
+    videoInfo: {
+        textAlign: 'center',
         fontSize: 12,
-        textAlign: 'center'
+        color: '#E0E0E0',
     },
 
 

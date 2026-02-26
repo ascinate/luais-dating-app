@@ -9,7 +9,7 @@ const tintColorLight = '#0a7ea4';
 const tintColorDark = '#fff';
 
 export const Colors = {
-  light: {
+
     text: '#11181C',
     background: '#fff',
     tint: tintColorLight,
@@ -17,16 +17,16 @@ export const Colors = {
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
     // pritam
-    lightGray: '#ABABAB'
-  },
-  dark: {
+    lightGray: '#ABABAB',
+    pink: '#F65D8F',
     text: '#ECEDEE',
     background: '#151718',
     tint: tintColorDark,
     icon: '#9BA1A6',
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
-  },
+    darkGray: '#3E3E3E'
+
 };
 
 export const Fonts = Platform.select({
