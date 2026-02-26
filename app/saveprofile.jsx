@@ -41,7 +41,7 @@ const saveprofile = () => {
                 <CustomText style={styles.name}>
                   Aria Bennett
                 </CustomText>
-                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center',gap: 6 }}>
                   <MapPin color={'#fff'} size={16} />
                   <Paragraph>
                     Aria Bennett
@@ -71,7 +71,7 @@ const saveprofile = () => {
                 <CustomText style={styles.name}>
                   Aria Bennett
                 </CustomText>
-                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 6 }}>
                   <MapPin color={'#fff'} size={16} />
                   <Paragraph>
                     Aria Bennett
@@ -102,7 +102,7 @@ const saveprofile = () => {
                 <CustomText style={styles.name}>
                   Aria Bennett
                 </CustomText>
-                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 6 }}>
                   <MapPin color={'#fff'} size={16} />
                   <Paragraph>
                     Aria Bennett
@@ -132,12 +132,16 @@ const saveprofile = () => {
                 <CustomText style={styles.name}>
                   Aria Bennett
                 </CustomText>
-                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                  <MapPin color={'#fff'} size={16} />
-                  <Paragraph>
+                <View style={{
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: 6
+                }}>
+                  <MapPin color={'#fff'} size={16}/>
+                  <Paragraph >
                     Aria Bennett
                   </Paragraph>
-
                 </View>
               </View>
               <View style={styles.likeButton}>
