@@ -10,7 +10,7 @@ const { height } = Dimensions.get("window");
 
 
 
-const codeVerfiy = () => {
+const AccountVerify = () => {
     const [code, setCode] = useState(["", "", "", "", "", ""]);
     const inputs = useRef([]);
 
@@ -35,7 +35,10 @@ const codeVerfiy = () => {
     return (
         <SafeAreaView style={styles.fullsignup}>
 
+
+
             <View style={styles.topsctions}>
+
                 <View style={{ flexDirection: "row", width: "100%", textAlign: "center", marginTop: 20, alignItems: "center", justifyContent: "center" }}>
                     <TouchableOpacity
                         onPress={() => router.back()}
@@ -44,15 +47,15 @@ const codeVerfiy = () => {
                         <Image source={require('../assets/images/backpng.png')} style={styles.backIcon} />
                     </TouchableOpacity>
                     <Image source={require('../assets/images/logo-louis.png')} style={styles.logo} />
+
                 </View>
 
                 <View style={styles.verifySection}>
-                    <H1>Enter your code</H1>
-                    <Paragraph style={{ marginTop: 15 }}>We have sent a 6 digit code to +1 254 567 8900.
-                        Please enter it below to continue.<TouchableOpacity
-                            onPress={() => router.push("/codeVerfiy")}
-                            style={styles.forgotBtn}
-                        ><CustomText style={styles.changeNumber}> Change Number  </CustomText></TouchableOpacity> </Paragraph>
+                    <H1>Verify Your Account</H1>
+                    <Paragraph style={{ marginTop: 15 }}>Enter the 6-digit code we just sent to your email noah@gmail.com<TouchableOpacity
+                        onPress={() => router.push("/codeVerfiy")}
+                        style={styles.forgotBtn}
+                    ><CustomText style={styles.changeNumber}> Change Number  </CustomText></TouchableOpacity> </Paragraph>
                     <View style={styles.otpRow}>
                         {code.map((digit, index) => (
                             <TextInput
@@ -71,7 +74,7 @@ const codeVerfiy = () => {
                             />
                         ))}
                     </View>
-                    <Paragraph>We will send a code to this number to verify it's really you.</Paragraph>
+
                 </View>
 
             </View>
@@ -80,7 +83,7 @@ const codeVerfiy = () => {
             <View style={styles.bottomactions}>
 
                 <Paragraph> Didn't get the code? Try again in 30 Seconds</Paragraph>
-                <ThemeButton style={styles.signinbtn} text="VERIFY" onPress={() => router.push('/success')} />
+                <ThemeButton style={styles.signinbtn} text="VERIFYVERIFY & CONTINUE" onPress={() => router.push('/CreatePassword')} />
                 <TouchableOpacity
                     onPress={() => router.push("/codeVerfiy")}
                     style={styles.forgotBtnh}
@@ -90,7 +93,7 @@ const codeVerfiy = () => {
         </SafeAreaView>
     )
 }
-export default codeVerfiy;
+export default AccountVerify;
 
 const styles = StyleSheet.create({
     fullsignup: {
@@ -174,7 +177,7 @@ const styles = StyleSheet.create({
 
     verifySection: {
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "start",
         height: height * 0.5,
     },
     signinbtn: {

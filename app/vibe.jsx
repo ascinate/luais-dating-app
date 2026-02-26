@@ -25,7 +25,7 @@ const match = () => {
                         <Paragraph style={{ textTransform: 'uppercase', color: Colors.pink, marginVertical: 10 }}>You are</Paragraph>
                         <Paragraph style={{ textTransform: 'uppercase', color: '#fff', fontSize: 30 }}>Bold Romatic</Paragraph>
 
-                        <View style={{ flexDirection: 'row', gap: 8, marginVertical: 12, width: '80%', flexWrap: 'wrap', justifyContent: 'center' }}>
+                        <View style={{ flexDirection: 'row', gap: 8, marginVertical: 12, flexWrap: 'wrap', justifyContent: 'center' }}>
                             <Badge text="🧘‍♀️ Emotionally deep" />
                             <Badge text="🎵 Music-driven" />
                             <Badge text="🎨 Values real connection" />

@@ -6,12 +6,14 @@ import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Dimensions, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Checkbox } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 const { height } = Dimensions.get("window");
 
 
 const signup = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [checked, setChecked] = useState(false);
   return (
     <SafeAreaView style={styles.fullsignup}>
 
@@ -19,7 +21,16 @@ const signup = () => {
         <Image source={require('../assets/images/logo-louis.png')} style={styles.logo} />
         <H1>WELCOME BACK</H1>
         <Paragraph>Login to your account to continue</Paragraph>
-        <Text>signup</Text>
+
+      </View>
+      <View style={styles.comoninputs}>
+        <Labeltext style={styles.label}>First Name</Labeltext>
+        <TextInput
+          placeholder="Enter your first name"
+          placeholderTextColor="#888"
+          style={styles.input}
+        />
+
       </View>
       <View style={styles.comoninputs}>
         <Labeltext style={styles.label}>Email Or Phone Number</Labeltext>
@@ -50,13 +61,12 @@ const signup = () => {
             />
           </TouchableOpacity>
         </View>
-        <View>
-          <TouchableOpacity
-            onPress={() => router.push("/home")}
-            style={styles.forgotBtn}
-          >
-            <Text style={styles.forgotText}>Forgot Password?</Text>
-          </TouchableOpacity>
+        <View style={{ flexDirection: "row", alignItems: "center", marginTop: 10 }}>
+          <Checkbox
+            status={checked ? 'checked' : 'unchecked'}
+            onPress={() => setChecked(!checked)}
+          />
+          <Paragraph style={{ color: "#ABABAB" }}> I agree to the <Text style={{ color: "#F3DEB1", textDecorationLine: "underline" }}>terms of use</Text> and <Text style={{ color: "#F3DEB1", textDecorationLine: "underline" }}>privacy policy</Text> </Paragraph>
         </View>
 
       </View>
@@ -85,8 +95,8 @@ const signup = () => {
 
         <View style={styles.registerRow}>
           <Text style={styles.grayText}>Don't have an account? </Text>
-          <TouchableOpacity>
-            <Text style={styles.registerText}>Register</Text>
+          <TouchableOpacity onPress={() => router.push("/signin")}>
+            <Text style={styles.registerText}>Sign in</Text>
           </TouchableOpacity>
         </View>
 
@@ -105,10 +115,20 @@ const styles = StyleSheet.create({
   fullsignup: {
     flex: 1,
     backgroundColor: '#000',
+    padding: 0,
     width: "100%",
-    paddingLeft: 12,
-    paddingRight: 12,
+    paddingRight: 2,
 
+  },
+  box: {
+    width: 24,
+    height: 24,
+    borderWidth: 2,
+    borderColor: "#333",
+    borderRadius: 4,
+  },
+  checked: {
+    backgroundColor: "#4CAF50",
   },
   logo: {
     width: 100,
