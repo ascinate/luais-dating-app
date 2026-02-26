@@ -59,7 +59,7 @@ export default function UserRegisterData() {
 
 
     const nextStep = () => {
-        if (step < 2) {
+        if (step < 3) {
             setStep(step + 1);
         }
     };

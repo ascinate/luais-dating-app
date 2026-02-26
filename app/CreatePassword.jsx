@@ -112,7 +112,7 @@ const CreatePassword = () => {
                             style={styles.doneBtn}
                onPress={() => {
   setModalVisible(false);
-  router.push('/home');
+  router.push('/UserRegisterData');
 }}
 
                          
