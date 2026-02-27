@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView } from 'react-native'
+import { View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { router } from 'expo-router'
 import { BadgeQuestionMark, BookHeart, ChessQueen, ChevronRight, CirclePause, CircleUserRound, Compass, GlobeLock, Heart, Lock, MapPin, Maximize2, MessageCircleWarning, MessageSquareMore, Navigation, Pause, ReceiptText, TableOfContents, Trash2, UserLock } from 'lucide-react-native'
@@ -41,25 +41,27 @@ const Settings = () => {
                 <View>
                     <Paragraph style={{ color: Colors.lightGray, paddingBottom: 18 }}>Account Controls</Paragraph>
                     {/* row */}
-                    <View style={styles.manuRow}>
-                        <View style={{ flexDirection: 'row', gap: 10 }}>
-                            <CirclePause color="#ffffff" />
-                            <Paragraph style={{ color: '#fff', fontSize: 16 }}>Pause Account</Paragraph>
-                        </View>
+                    <TouchableOpacity onPress={()=> {router.push('/deleteAccount')}}>
+                        <View style={styles.manuRow}>
+                            <View style={{ flexDirection: 'row', gap: 10 }}>
+                                <CirclePause color="#ffffff" />
+                                <Paragraph style={{ color: '#fff', fontSize: 16 }}>Pause Account</Paragraph>
+                            </View>
 
-                        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                            <ChessQueen color="#F3DEB1" style={{ marginRight: 12 }} />
+                            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                                <ChessQueen color="#F3DEB1" style={{ marginRight: 12 }} />
 
-                            <Switch
-                                style={{ margin: 0, padding: 0 }}
-                                trackColor={{ false: '#767577', true: '#81b0ff' }}
-                                thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-                                ios_backgroundColor="#3e3e3e"
-                                onValueChange={toggleSwitch}
-                                value={isEnabled}
-                            />
+                                <Switch
+                                    style={{ margin: 0, padding: 0 }}
+                                    trackColor={{ false: '#767577', true: '#81b0ff' }}
+                                    thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                                    ios_backgroundColor="#3e3e3e"
+                                    onValueChange={toggleSwitch}
+                                    value={isEnabled}
+                                />
+                            </View>
                         </View>
-                    </View>
+                    </TouchableOpacity>
 
                     {/* row */}
                     <View style={styles.manuRowTwo}>

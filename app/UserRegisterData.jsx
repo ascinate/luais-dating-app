@@ -2,6 +2,7 @@ import H1 from "@/components/ui/H1";
 import Labeltext from "@/components/ui/Labeltext";
 import Paragraph from "@/components/ui/Paragraph";
 import { LinearGradient } from "expo-linear-gradient";
+import { router } from "expo-router";
 import { useState } from "react";
 import { Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { Checkbox } from 'react-native-paper';
@@ -61,8 +62,11 @@ export default function UserRegisterData() {
     const nextStep = () => {
         if (step < 3) {
             setStep(step + 1);
+        } else {
+            router.push("/uploadpage");   // 👈 go to upload.jsx
         }
     };
+ 
 
     return (
         <SafeAreaView style={styles.container}>

@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView, FlatList } from 'react-native'
+import { View, StyleSheet, ScrollView, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 
@@ -10,60 +10,81 @@ import BackgroundUI from '@/components/ui/BackgroundUI'
 import Paragraph from '@/components/ui/Paragraph'
 import { Colors } from '@/constants/theme'
 import { TableOfContents } from 'lucide-react-native'
+import { router } from 'expo-router'
 
 
 const deleteAccount = () => {
     return (
         <BackgroundUI>
-            {/* header */}
-            <View style={styles.header}>
-                <CircleButton
-                    Icon={TableOfContents}
-                    onPress={() => router.back()}
-                />
+            <View style={{ flex: 1 }}>
 
-                <HeadingH2 style={styles.title}>
-                    Delete Account
-                </HeadingH2>
-
-                <View style={{ width: 40 }} />
-            </View>
+                <ScrollView
+                    contentContainerStyle={{ paddingBottom: 40 }}
+                    showsVerticalScrollIndicator={false}
+                >
 
 
+                    {/* header */}
+                    <View style={styles.header}>
+                        <CircleButton
+                            Icon={TableOfContents}
+                            onPress={() => router.back()}
+                        />
 
+                        <HeadingH2 style={styles.title}>
+                            Delete Account
+                        </HeadingH2>
 
-            <View style={styles.container}>
-                <Paragraph style={styles.heading}>
-                    ARE YOU SURE YOU WANT TO DELETE YOUR ACCOUNT?
-                </Paragraph>
-
-                <Paragraph style={styles.subParagraph}>
-                    This action is permanent and can’t be undone.
-                </Paragraph>
-
-                <View style={styles.listContainer}>
-                    <View style={styles.row}>
-                        <Paragraph style={styles.bullet}>•</Paragraph>
-                        <Paragraph style={styles.itemParagraph}>Your profile will be removed</Paragraph>
+                        <View style={{ width: 40 }} />
                     </View>
 
-                    <View style={styles.row}>
-                        <Paragraph style={styles.bullet}>•</Paragraph>
-                        <Paragraph style={styles.itemParagraph}>Matches and messages will be deleted</Paragraph>
+
+
+
+                    <View style={styles.container}>
+                        <Paragraph style={styles.heading}>
+                            ARE YOU SURE YOU WANT TO DELETE YOUR ACCOUNT?
+                        </Paragraph>
+
+                        <Paragraph style={styles.subParagraph}>
+                            This action is permanent and can’t be undone.
+                        </Paragraph>
+
+                        <View style={styles.listContainer}>
+                            <View style={styles.row}>
+                                <Paragraph style={styles.bullet}>•</Paragraph>
+                                <Paragraph style={styles.itemParagraph}>Your profile will be removed</Paragraph>
+                            </View>
+
+                            <View style={styles.row}>
+                                <Paragraph style={styles.bullet}>•</Paragraph>
+                                <Paragraph style={styles.itemParagraph}>Matches and messages will be deleted</Paragraph>
+                            </View>
+
+                            <View style={styles.row}>
+                                <Paragraph style={styles.bullet}>•</Paragraph>
+                                <Paragraph style={styles.itemParagraph}>You’ll need to create a new account to return</Paragraph>
+                            </View>
+                        </View>
                     </View>
 
-                    <View style={styles.row}>
-                        <Paragraph style={styles.bullet}>•</Paragraph>
-                        <Paragraph style={styles.itemParagraph}>You’ll need to create a new account to return</Paragraph>
-                    </View>
+
+
+
+
+
+                </ScrollView>
+                {/* BOTTOM BUTTONS */}
+                <View style={styles.bottomButtons}>
+                    <ThemeButton text="Continue" onPress={() => router.push('/deleteAccountFeedback')} />
+
+                    <TouchableOpacity>
+                        <Paragraph style={styles.cancelText}>
+                            Cancel
+                        </Paragraph>
+                    </TouchableOpacity>
                 </View>
             </View>
-
-
-
-<ThemeButton text='dsd'/>
-
-
         </BackgroundUI>
     )
 }
@@ -133,5 +154,16 @@ const styles = StyleSheet.create({
         color: '#ddd',
         fontSize: 14,
         lineHeight: 20,
+    },
+
+    bottomButtons: {
+        paddingHorizontal: 20,
+        paddingBottom: 25,
+    },
+
+    cancelText: {
+        textAlign: 'center',
+        color: '#F3DEB1',
+
     },
 })

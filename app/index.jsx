@@ -8,7 +8,7 @@ import { router } from 'expo-router';
 import { Dimensions, StyleSheet, View } from 'react-native';
 
 // components
-import CustomText from '@/components/ui/CustomText';
+import CustomText from '@/components/ui/CustomText';                         
 import H1 from '@/components/ui/H1';
 import Paragraph from '@/components/ui/Paragraph';
 import ThemeButton from '@/components/ui/ThemeButton';
@@ -48,7 +48,7 @@ export default function LandingTwo() {
         <Paragraph style={styles.paragraph}>
           A better way to meet the right people.
         </Paragraph>
-        <ThemeButton text="LET'S GO" onPress={() => router.push('/deleteAccount')} />
+        <ThemeButton text="LET'S GO" onPress={() => router.push('/signup')} />
       </LinearGradient>
     </View>
   );

@@ -18,7 +18,7 @@ const chat = () => {
                 {/* HEADER */}
                 <View style={styles.header}>
                     <HeadingH2>Chat</HeadingH2>
-                    <CircleButton Icon={Search} onPress={() => router.push('/saveprofile')} />
+                    <CircleButton Icon={Search} onPress={() => router.push('/settings')} />
                 </View>
 
                 {/* STORIES */}
@@ -55,7 +55,7 @@ const chat = () => {
                 <View>
 
                     {/* ROW 1 */}
-                    <TouchableOpacity style={styles.chatRow}>
+                    <TouchableOpacity style={styles.chatRow}  onPress={() => router.push('/chatting')}>
                         <Image source={require('../assets/images/profile.jpg')} style={styles.chatAvatar} />
 
                         <View style={{ flex: 1 }}>
