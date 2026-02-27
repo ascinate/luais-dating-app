@@ -93,13 +93,7 @@ const deleteAccountFeedback = () => {
             </Paragraph>
           </TouchableOpacity>
         </View>
-
       </View>
-
-
-
-
-
     </BackgroundUI>
   )
 }
