@@ -1,5 +1,5 @@
-import { View, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { View, StyleSheet, TextInput, TouchableOpacity, Modal } from 'react-native'
+import React, { useState } from 'react'
 import { Eye } from 'lucide-react-native'
 
 // components
@@ -7,8 +7,14 @@ import Logo from '@/components/ui/Logo'
 import BackgroundUI from '@/components/ui/BackgroundUI'
 import Paragraph from '@/components/ui/Paragraph'
 import ThemeButton from '@/components/ui/ThemeButton'
+import { router } from 'expo-router'
 
 const ConfirmYourIdentity = () => {
+
+    const [modalVisible, setModalVisible] = useState(false)
+    const [checked, setChecked] = useState(false)
+
+
     return (
         <BackgroundUI>
             <View style={{ flex: 1 }}>
@@ -49,13 +55,16 @@ const ConfirmYourIdentity = () => {
 
 
                 <View style={styles.bottomSection}>
-                    <TouchableOpacity style={styles.deleteButton}>
+                    <TouchableOpacity
+                        style={styles.deleteButton}
+                        onPress={() => setModalVisible(true)}
+                    >
                         <Paragraph style={styles.deleteText}>
                             DELETE ACCOUNT
                         </Paragraph>
                     </TouchableOpacity>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=> router.push('/home')}>
                         <Paragraph style={styles.cancelText}>
                             CANCEL
                         </Paragraph>
@@ -66,10 +75,63 @@ const ConfirmYourIdentity = () => {
 
 
 
+            <Modal
+                transparent
+                animationType="fade"
+                visible={modalVisible}
+            >
+                <View style={styles.modalOverlay}>
+                    <View style={styles.modalContainer}>
 
+                        <Paragraph style={styles.modalTitle}>
+                            CONFIRM DELETION
+                        </Paragraph>
 
+                        <Paragraph style={styles.modalText}>
+                            Are you sure you want to permanently delete your account?
+                            This cannot be undone.
+                        </Paragraph>
 
+                        {/* Checkbox */}
+                        <TouchableOpacity
+                            style={styles.checkboxRow}
+                            onPress={() => setChecked(!checked)}
+                        >
+                            <View style={[
+                                styles.checkbox,
+                                checked && { backgroundColor: '#fff' }
+                            ]} />
+                            <Paragraph style={styles.checkboxText}>
+                                I understand this action is permanent.
+                            </Paragraph>
+                        </TouchableOpacity>
 
+                        {/* Confirm Button */}
+                        <TouchableOpacity
+                            style={[
+                                styles.confirmDeleteButton,
+                                { opacity: checked ? 1 : 0.5 }
+                            ]}
+                            disabled={!checked}
+                        >
+                            <Paragraph style={styles.confirmDeleteText}>
+                                YES, DELETE MY ACCOUNT
+                            </Paragraph>
+                        </TouchableOpacity>
+
+                        {/* Cancel */}
+                        <TouchableOpacity
+                            style={styles.cancelModalButton}
+                            onPress={() => setModalVisible(false)}
+                        >
+                            <Paragraph style={styles.cancelModalText}>
+                                CANCEL
+                            </Paragraph>
+                        </TouchableOpacity>
+
+                    </View>
+                </View>
+            </Modal>
 
 
 
@@ -149,4 +211,80 @@ const styles = StyleSheet.create({
         color: '#F3DEB1',
     },
 
+
+
+
+    // modal
+    modalOverlay: {
+        flex: 1,
+        backgroundColor: 'rgba(0,0,0,0.7)',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    modalContainer: {
+        width: '90%',
+        backgroundColor: '#0f0f0f',
+        borderRadius: 20,
+        padding: 25,
+        borderWidth: 1,
+        borderColor: '#333',
+    },
+
+    modalTitle: {
+        fontSize: 22,
+        color: '#fff',
+        marginBottom: 15,
+    },
+
+    modalText: {
+        color: '#aaa',
+        fontSize: 14,
+        marginBottom: 20,
+    },
+
+    checkboxRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 25,
+    },
+
+    checkbox: {
+        width: 22,
+        height: 22,
+        borderRadius: 6,
+        borderWidth: 1,
+        borderColor: '#777',
+        marginRight: 10,
+    },
+
+    checkboxText: {
+        color: '#ccc',
+        flex: 1,
+    },
+
+    confirmDeleteButton: {
+        backgroundColor: '#FF1E1E',
+        paddingVertical: 16,
+        borderRadius: 12,
+        alignItems: 'center',
+        marginBottom: 15,
+    },
+
+    confirmDeleteText: {
+        color: '#fff',
+        fontSize: 14,
+    },
+
+    cancelModalButton: {
+        borderWidth: 1,
+        borderColor: '#F3DEB1',
+        borderRadius: 12,
+        paddingVertical: 14,
+        alignItems: 'center',
+    },
+
+    cancelModalText: {
+        color: '#F3DEB1',
+    },
 })

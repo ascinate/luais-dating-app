@@ -1,5 +1,5 @@
 import { View, StyleSheet, ScrollView, FlatList, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 
 // components
 import CircleButton from '@/components/ui/CircleButton'
@@ -12,6 +12,10 @@ import { TableOfContents } from 'lucide-react-native'
 import { router } from 'expo-router'
 
 const deleteAccountFeedback = () => {
+
+
+  const [modalVisible, setModalVisible] = useState(false)
+  const [checked, setChecked] = useState(false)
   return (
     <BackgroundUI>
       <View style={{ flex: 1 }}>
@@ -85,12 +89,17 @@ const deleteAccountFeedback = () => {
 
           <TouchableOpacity>
             <Paragraph style={styles.cancelText}>
-             skip
+              skip
             </Paragraph>
           </TouchableOpacity>
         </View>
 
       </View>
+
+
+
+
+
     </BackgroundUI>
   )
 }
