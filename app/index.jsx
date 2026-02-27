@@ -48,7 +48,7 @@ export default function LandingTwo() {
         <Paragraph style={styles.paragraph}>
           A better way to meet the right people.
         </Paragraph>
-        <ThemeButton text="LET'S GO" onPress={() => router.push('/signin')} />
+        <ThemeButton text="LET'S GO" onPress={() => router.push('/deleteAccount')} />
       </LinearGradient>
     </View>
   );

@@ -19,18 +19,6 @@ const matches = () => {
     return (
         <BackgroundUI>
 
-
-
-
-
-
-
-
-
-
-
-
-
             <ScrollView style={{ padding: 12 }}>
                 <ScrollView
                     horizontal
