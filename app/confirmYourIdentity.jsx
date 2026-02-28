@@ -57,7 +57,7 @@ const ConfirmYourIdentity = () => {
                 <View style={styles.bottomSection}>
                     <TouchableOpacity
                         style={styles.deleteButton}
-                        onPress={() => setModalVisible(true)}
+                        onPress={() => router.push('/discoveryPreferences')}
                     >
                         <Paragraph style={styles.deleteText}>
                             DELETE ACCOUNT

@@ -61,7 +61,7 @@ const verification = () => {
                 </ScrollView>
                 {/* BOTTOM BUTTONS */}
                 <View style={styles.bottomButtons}>
-                    <ThemeButton text="Start Verification" onPress={() => router.push('/deleteAccountFeedback')} />
+                    <ThemeButton text="Start Verification" onPress={() => router.push('/verificationTwo')} />
 
 
                 </View>

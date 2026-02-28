@@ -29,7 +29,7 @@ const deleteAccountFeedback = () => {
               Icon={TableOfContents}
               onPress={() => router.back()}
             />
-            <HeadingH2 style={{ marginLeft: 14 }}>FEEDBACK (OPTIONAL)</HeadingH2>
+            <HeadingH2 style={{ marginLeft: 14,width: '70%' }}>FEEDBACK (OPTIONAL)</HeadingH2>
             <View style={{ width: 40 }} />
           </View>
 
@@ -104,7 +104,7 @@ export default deleteAccountFeedback
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
-    alignItems: 'center',
+
     justifyContent: 'space-between',
     paddingHorizontal: 15,
     paddingVertical: 15,

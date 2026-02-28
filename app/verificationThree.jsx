@@ -61,7 +61,7 @@ const verification = () => {
                 </ScrollView>
                 {/* BOTTOM BUTTONS */}
                 <View style={styles.bottomButtons}>
-                    <ThemeButton text="Take a Selfie" onPress={() => router.push('/verificationCamera')} />
+                    <ThemeButton text="Take a Selfie" onPress={() => router.push('/verificationFace')} />
 
 
                 </View>

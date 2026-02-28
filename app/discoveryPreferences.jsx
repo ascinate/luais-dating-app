@@ -24,9 +24,9 @@ const discoveryPreferences = () => {
                 <View style={styles.header}>
                     <CircleButton
                         Icon={TableOfContents}
-                        onPress={() => router.back()}
+                        onPress={() => router.push('/verification')}
                     />
-                    <HeadingH2 style={{ marginLeft: 14 }}>
+                    <HeadingH2 style={{ marginLeft: 14, width: "70%" }}>
                         Discovery Preferences
                     </HeadingH2>
                     <View style={{ width: 40 }} />
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
+
 
         paddingTop: 10,
     },
