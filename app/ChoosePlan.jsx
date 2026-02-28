@@ -48,7 +48,7 @@ const ChoosePlan = () => {
                             </View>
                             <Paragraph style={{ color: "#fff", marginTop: 10, fontSize: 12 }}>Answer 15 quick questions and get more accurate, meaningful matches.</Paragraph>
                             <TouchableOpacity
-                                onPress={() => router.push("/questions")}
+                                onPress={() => router.push("/home")}
                                 style={styles.btnplans}
                             ><LinearGradient
                                 colors={['#F65D8F', '#633DE2']}
@@ -67,7 +67,7 @@ const ChoosePlan = () => {
                             </View>
                             <Paragraph style={{ color: "#fff", marginTop: 10, fontSize: 12 }}> You can always complete your profile later. </Paragraph>
                             <TouchableOpacity
-                                onPress={() => router.push("/questions")}
+                                onPress={() => router.push("/home")}
                                 style={styles.btnplans}
                             ><LinearGradient
                                 colors={['#F65D8F', '#633DE2']}

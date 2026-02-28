@@ -18,6 +18,7 @@ export const Colors = {
     tabIconSelected: tintColorLight,
     // pritam
     lightGray: '#ABABAB',
+    softWarm: '#F3DEB1',
     pink: '#F65D8F',
     text: '#ECEDEE',
     background: '#151718',
